@@ -1,3 +1,27 @@
+# `fetch` as a module
+
+This exposes `fetch` as a CommonJS module.
+It's a light fork of [`whatwg-fetch`](https://www.npmjs.com/package/whatwg-fetch).
+I'll be trying to match their version numbers.
+
+The usage is either:
+
+```js
+// Will use es6-promise by default
+var fetch = require('cjs-fetch');
+```
+
+Or, with a different Promise implementation:
+
+```js
+// use native promise or bluebird
+var fetch = require('cjs-fetch/fetch')(
+  typeof Promise !== 'undefined' ? Promise :
+  require('bluebird'));
+```
+
+Original README:
+
 # window.fetch polyfill
 
 The global `fetch` function is an easier way to make web requests and handle

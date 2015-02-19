@@ -4,8 +4,8 @@ importScripts('../node_modules/mocha/mocha.js')
 mocha.setup('tdd')
 self.assert = chai.assert
 
-importScripts('../bower_components/es6-promise/promise.js')
-importScripts('../fetch.js')
+importScripts('../node_modules/es6-promise/dist/es6-promise.js')
+importScripts('../dist/polyfill.js')
 
 importScripts('test.js')
 

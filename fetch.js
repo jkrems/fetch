@@ -1,9 +1,6 @@
-(function() {
+/* global module */
+module.exports = function(Promise) {
   'use strict';
-
-  if (self.fetch) {
-    return
-  }
 
   function normalizeName(name) {
     if (typeof name !== 'string') {
@@ -333,12 +330,14 @@
 
   Body.call(Response.prototype)
 
-  self.Headers = Headers;
-  self.Request = Request;
-  self.Response = Response;
-
-  self.fetch = function (url, options) {
+  function fetch(url, options) {
     return new Request(url, options).fetch()
   }
-  self.fetch.polyfill = true
-})();
+
+  fetch['default'] = fetch;
+  fetch.Headers = Headers;
+  fetch.Request = Request;
+  fetch.Response = Response;
+
+  return fetch;
+};

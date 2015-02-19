@@ -1,7 +1,7 @@
 {
-  "name": "whatwg-fetch",
+  "name": "cjs-fetch",
   "version": "0.7.0",
-  "main": "fetch.js",
+  "main": "index.js",
   "repository": "github/fetch",
   "licenses": [
     {
@@ -9,16 +9,22 @@
       "url": "https://github.com/github/fetch/blob/master/LICENSE"
     }
   ],
+  "dependencies": {
+    "es6-promise": "~2.0.1"
+  },
   "devDependencies": {
     "bower": "1.3.8",
+    "browserify": "~8.1.3",
     "chai": "1.10.0",
     "jshint": "2.5.2",
-    "mocha-phantomjs": "3.5.2",
     "mocha": "2.1.0",
+    "mocha-phantomjs": "3.5.2",
     "phantomjs": "1.9.13"
   },
-  "files" : [
+  "files": [
     "LICENSE",
-    "fetch.js"
+    "fetch.js",
+    "index.js",
+    "polyfill.js"
   ]
 }

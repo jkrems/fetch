@@ -1,18 +1,19 @@
-build: node_modules/ bower_components/
+build: node_modules/
 
-test: node_modules/ build lint
+test: node_modules/ build lint dist/polyfill.js
 	./test/run.sh
 
 lint: node_modules/
 	./node_modules/.bin/jshint *.js test/*.js
 
-bower_components/: node_modules/
-	./node_modules/.bin/bower install
+dist/polyfill.js: polyfill.js fetch.js index.js
+	mkdir -p dist
+	./node_modules/.bin/browserify polyfill.js -o dist/polyfill.js
 
 node_modules/:
 	npm install
 
 clean:
-	rm -rf ./bower_components ./node_modules
+	rm -rf ./node_modules
 
 .PHONY: build clean lint test
